@@ -3,11 +3,13 @@ package br.edu.ifsp.dmos5.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
 import br.edu.ifsp.dmos5.R;
+import br.edu.ifsp.dmos5.dao.UsuarioDaoImplement;
 
 public class MainActivity extends AppCompatActivity {
     EditText login;
@@ -20,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         findALlElementsById();
         adicionarEventosAosBotoes();
+        instanciaBanco();
+    }
+
+    public void instanciaBanco() {
+        new UsuarioDaoImplement();
     }
 
     @SuppressLint("WrongViewCast")
@@ -35,5 +42,11 @@ public class MainActivity extends AppCompatActivity {
         cadastrar.setOnClickListener(view -> cadastrar());
     }
     public void login () {}
-    public void cadastrar () {}
+    public void cadastrar () {
+        Bundle bundle = new Bundle();
+        Intent intent = new Intent(this, Activity_Cadastrar.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+
+    }
 }

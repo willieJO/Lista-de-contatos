@@ -2,7 +2,9 @@
     <string name="app_name">App7_ListaContatos</string>
     <string name="login">Usuario</string>
     <string name="senha">Senha</string>
+    <string name="confirmaSenha">Confirmar Senha</string>
     <string name="logar">Entrar</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="criarConta">Criar Conta</string>
 
 </resources>
