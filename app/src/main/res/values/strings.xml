@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">App7_ListaContatos</string>
+    <string name="login">Usuario</string>
+    <string name="senha">Senha</string>
+    <string name="logar">Entrar</string>
+    <string name="cadastrar">Cadastrar</string>
+
 </resources>
