@@ -4,15 +4,21 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import br.edu.ifsp.dmos5.R;
 import br.edu.ifsp.dmos5.dao.UsuarioDaoImplement;
 import br.edu.ifsp.dmos5.model.Usuario;
+import br.edu.ifsp.dmos5.utils.Utils;
+
 
 public class Activity_Cadastrar extends AppCompatActivity {
     EditText usuario;
@@ -41,7 +47,7 @@ public class Activity_Cadastrar extends AppCompatActivity {
     }
 
     public void cadastrarUsuario() {
-        if(validaCampos() == false) {
+        if (validaCampos() == false) {
             return;
         }
         if (verificaUsuarioRegistradoNoBanco(usuario.getText().toString()) == false) {
@@ -49,16 +55,18 @@ public class Activity_Cadastrar extends AppCompatActivity {
         }
         Usuario user = new Usuario();
         user.setLogin(usuario.getText().toString());
-        user.setSenha(senha.getText().toString());
+        user.setSenha(Utils.criptografar(senha.getText().toString()));
         UsuarioDaoImplement.database.add(user);
-
         Context context = getApplicationContext();
         Toast.makeText(context,"Usuario registrado com sucesso",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
 
     }
 
     public boolean verificaUsuarioRegistradoNoBanco(String usuario) {
-        if (UsuarioDaoImplement.database.stream().filter(user -> user.getLogin().equals(usuario)).count() > 0) {
+        if (UsuarioDaoImplement.database.stream()
+                .filter(user -> user.getLogin().equals(usuario)).count() > 0) {
             Context context = getApplicationContext();
             Toast.makeText(context,"Usuario já registrado",Toast.LENGTH_LONG).show();
             return false;
@@ -68,7 +76,7 @@ public class Activity_Cadastrar extends AppCompatActivity {
 
     public boolean validaCampos() {
         Context context = getApplicationContext();
-        if(confirmaSenha.getText().toString().length() == 0 ||
+        if (confirmaSenha.getText().toString().length() == 0 ||
                 senha.getText().toString().length() == 0 ||
                 usuario.getText().toString().length() == 0) {
             Toast.makeText(context,"Todos os campos são obrigatorios",Toast.LENGTH_LONG).show();
