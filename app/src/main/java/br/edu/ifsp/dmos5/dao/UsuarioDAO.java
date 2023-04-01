@@ -6,11 +6,10 @@ import br.edu.ifsp.dmos5.model.Usuario;
 
 public interface UsuarioDAO {
 
-    void addUser(Usuario beer);
+    public void addUser(Usuario beer);
 
-    Usuario findByUsername(Usuario user);
+    public Usuario findByUsername(Usuario user);
 
-    List<Usuario> findAll();
+    public List<Usuario> findAll();
 
-    List<Usuario> findAll(Order order);
 }

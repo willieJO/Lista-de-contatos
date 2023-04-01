@@ -31,8 +31,6 @@ public class UsuarioDaoImplement implements  UsuarioDAO{
         return database;
     }
 
-    @Override
-    public List<Usuario> findAll(Order order) {
-        return null;
-    }
+
+
 }

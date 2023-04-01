@@ -16,10 +16,10 @@ import br.edu.ifsp.dmos5.utils.Utils;
 import br.edu.ifsp.dmos5.view.constant.Constant;
 
 public class MainActivity extends AppCompatActivity {
-    EditText login;
-    EditText senha;
-    Button entrar;
-    Button cadastrar;
+    private EditText login;
+    private EditText senha;
+    private Button entrar;
+    private Button cadastrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,23 +29,22 @@ public class MainActivity extends AppCompatActivity {
         instanciaBanco();
     }
 
-    public void instanciaBanco() {
+    private void instanciaBanco() {
         new UsuarioDaoImplement();
     }
 
-    @SuppressLint("WrongViewCast")
-    public void findALlElementsById() {
+    private void findALlElementsById() {
         login = findViewById(R.id.editLogin);
         senha = findViewById(R.id.editSenha);
         entrar = findViewById(R.id.buttonEntrar);
         cadastrar = findViewById(R.id.buttonCadastrar);
     }
 
-    public void adicionarEventosAosBotoes() {
+    private void adicionarEventosAosBotoes() {
         entrar.setOnClickListener(view -> login());
         cadastrar.setOnClickListener(view -> cadastrar());
     }
-    public void login () {
+        private void login () {
         if (login.getText().toString().length() == 0 || senha.getText().toString().length() == 0) {
             Toast.makeText(this,"Todos os campos são obrigatorios",Toast.LENGTH_LONG).show();
             return;
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
     }
-    public void cadastrar () {
+    private void cadastrar () {
         Bundle bundle = new Bundle();
         Intent intent = new Intent(this, Activity_Cadastrar.class);
         intent.putExtras(bundle);

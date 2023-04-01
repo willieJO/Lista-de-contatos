@@ -13,6 +13,13 @@
         android:theme="@style/Theme.App7_ListaContatos"
         tools:targetApi="31">
         <activity
+            android:name=".view.ActivityNovoContato"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".view.ActivityContatos"
             android:exported="false">
             <meta-data

@@ -5,43 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
-    tools:context=".view.ActivityContatos">
+    tools:context=".view.ActivityNovoContato">
 
-    <Spinner
-        android:id="@+id/spinnerContatos"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/editApelido"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/apelido"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/nomeDoContato"
-        android:layout_marginTop="80dp"
+    <EditText
+        android:id="@+id/editNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:visibility="invisible"
+        android:ems="10"
+        android:hint="@string/nome"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTelefone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerContatos" />
+        app:layout_constraintTop_toBottomOf="@+id/editApelido" />
 
-    <TextView
-        android:id="@+id/numeroDoContato"
-        android:layout_marginTop="80dp"
+    <EditText
+        android:id="@+id/editTelefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:ems="10"
+        android:hint="@string/telefone"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSalvarContato"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeDoContato" />
+        app:layout_constraintTop_toBottomOf="@+id/editApelido" />
 
     <Button
-        android:id="@+id/criaNovoContato"
+        android:id="@+id/buttonSalvarContato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adicionar contato"
+        android:text="Salvar Contato"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numeroDoContato" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

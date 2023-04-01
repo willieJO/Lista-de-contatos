@@ -35,18 +35,18 @@ public class Activity_Cadastrar extends AppCompatActivity {
         adicionarEventosAosBotoes();
     }
 
-    public void findALlElementsById() {
+    private void findALlElementsById() {
         usuario = findViewById(R.id.editUsuarioCadastrar);
         senha = findViewById(R.id.editSenhaCadastrar);
         confirmaSenha = findViewById(R.id.editConfirmaSenhaCadastrar);
         cadastrarUsuario = findViewById(R.id.cadastrarUsuario);
     }
 
-    public void adicionarEventosAosBotoes() {
+    private void adicionarEventosAosBotoes() {
         cadastrarUsuario.setOnClickListener(view -> cadastrarUsuario());
     }
 
-    public void cadastrarUsuario() {
+    private void cadastrarUsuario() {
         if (validaCampos() == false) {
             return;
         }
@@ -64,7 +64,7 @@ public class Activity_Cadastrar extends AppCompatActivity {
 
     }
 
-    public boolean verificaUsuarioRegistradoNoBanco(String usuario) {
+    private boolean verificaUsuarioRegistradoNoBanco(String usuario) {
         if (UsuarioDaoImplement.database.stream()
                 .filter(user -> user.getLogin().equals(usuario)).count() > 0) {
             Context context = getApplicationContext();
@@ -74,7 +74,7 @@ public class Activity_Cadastrar extends AppCompatActivity {
         return true;
     }
 
-    public boolean validaCampos() {
+    private boolean validaCampos() {
         Context context = getApplicationContext();
         if (confirmaSenha.getText().toString().length() == 0 ||
                 senha.getText().toString().length() == 0 ||
@@ -87,10 +87,6 @@ public class Activity_Cadastrar extends AppCompatActivity {
             return false;
         }
         return true;
-    }
-
-    public boolean validaUsuario() {
-        return false;
     }
 
 

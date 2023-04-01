@@ -6,5 +6,8 @@
     <string name="logar">Entrar</string>
     <string name="cadastrar">Cadastrar</string>
     <string name="criarConta">Criar Conta</string>
+    <string name="apelido">Apelido</string>
+    <string name="nome">Nome</string>
+    <string name="telefone">Numero de telefone</string>
 
 </resources>
